@@ -3,245 +3,238 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>BalonApp</title>
-    <meta name="description" content="Balon – Tanışma ve sohbet uygulaması. Keşfet, eşleş, sohbet et!" />
+    <title>Balon – Tanış, Eşleş, Sohbet Et</title>
+    <meta name="description" content="Balon – Mor temalı modern tanışma uygulaması. Keşfet, eşleş, sohbet et!" />
     <style>
+      /* ------------------ THEME ------------------ */
       :root{
-        --bg:#0f0f12;           /* arka plan koyu nötr */
-        --panel:#14141a;        /* kart zemini */
-        --text:#e7e7ee;         /* ana metin */
-        --muted:#b6b6c3;        /* ikincil metin */
-        --stroke:#262633;       /* sınır */
-        --accent:#7C3AED;       /* mor ana */
-        --accent-2:#A78BFA;     /* açık mor */
-        --accent-3:#6D28D9;     /* koyu mor */
+        --bg-1:#0B0713;  /* koyu mor arka plan */
+        --bg-2:#150B2E;  /* degrade alt */
+        --panel:#1B1036; /* cam panel */
+        --text:#F4F0FF;  /* ana metin */
+        --muted:#CFC4FF; /* ikincil metin */
+        --ink:#A689FF;   /* vurgu metin */
+        --line:#2A1E4B;  /* ayraç */
+        --accent:#7C3AED;   /* mor ana */
+        --accent-2:#A78BFA; /* açık mor */
+        --accent-3:#5B21B6; /* koyu mor */
+        --radius:18px;
+        --shadow:0 20px 60px rgba(124,58,237,.25), 0 2px 8px rgba(0,0,0,.25);
       }
+
+      /* ------------------ RESET ------------------ */
       *{box-sizing:border-box}
       html{scroll-behavior:smooth}
-      body{font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin:0; color:var(--text); background:linear-gradient(180deg,#0f0f12 0%,#111118 30%,#0f0f12 100%)}
-      a{color:inherit}
-      .container{max-width:1024px; margin:0 auto; padding:0 20px}
-      /* Header */
-      .header{position:sticky; top:0; z-index:10; backdrop-filter:saturate(180%) blur(8px); background:rgba(20,20,26,.75); border-bottom:1px solid var(--stroke)}
-      .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-      .brand{display:flex; align-items:center; gap:10px; font-weight:700}
-      .brand .logo{width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:inline-grid; place-items:center; box-shadow:0 8px 24px rgba(124,58,237,.35)}
-      .brand .logo span{font-size:16px}
-      .nav a{ text-decoration:none; opacity:.95 }
-      .navlinks{display:flex; gap:14px; flex-wrap:wrap}
-      .btn{display:inline-block; padding:10px 16px; border:1px solid var(--stroke); border-radius:12px; text-decoration:none; background:#15151c}
-      .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2)); border-color:transparent; color:white; box-shadow:0 8px 28px rgba(124,58,237,.35)}
-      .btn-outline{border-color:var(--stroke); color:var(--text)}
-      /* Hero */
-      .hero{position:relative; overflow:hidden;}
-      .hero .wrap{display:grid; gap:16px; padding:64px 0}
-      .title{font-size:40px; letter-spacing:.3px; line-height:1.15; margin:0}
-      .subtitle{color:var(--muted); max-width:720px}
-      .glow{position:absolute; inset:auto -30% -40% -30%; height:420px; background:radial-gradient(60% 60% at 50% 50%, rgba(124,58,237,.35) 0%, rgba(124,58,237,0) 60%); filter:blur(40px); pointer-events:none}
-      /* Sections */
-      section{scroll-margin-top:84px}
-      .card{background:linear-gradient(180deg,#15151c,#14141a); border:1px solid var(--stroke); border-radius:16px; padding:22px; box-shadow: 0 12px 32px rgba(0,0,0,.25)}
-      .grid{display:grid; gap:16px}
-      @media(min-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} }
-      h2{margin:0 0 6px 0; font-size:24px}
-      p{margin:10px 0}
-      ul{margin:12px 0; padding-left:20px}
-      li{margin:6px 0}
-      .kicker{display:inline-block; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#dccfff; padding:6px 10px; border:1px dashed rgba(167,139,250,.45); border-radius:999px}
-      .chip{display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid var(--stroke); color:var(--muted)}
-      .section-head{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:8px}
-      .footer{border-top:1px solid var(--stroke); color:var(--muted)}
-      .footer-inner{padding:26px 0; display:flex; gap:12px; justify-content:space-between; flex-wrap:wrap}
-      .muted{color:var(--muted)}
+      body{margin:0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color:var(--text); background:
+        radial-gradient(1200px 800px at 10% -10%, rgba(167,139,250,.15), transparent 60%),
+        radial-gradient(900px 700px at 90% 10%, rgba(124,58,237,.18), transparent 60%),
+        linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+      }
+      a{color:inherit; text-decoration:none}
+      img{max-width:100%; height:auto}
+
+      /* ------------------ LAYOUT ------------------ */
+      .container{max-width:1120px; margin:0 auto; padding:0 24px}
+      section{padding:96px 0; position:relative}
+      .divider{height:1px; background:linear-gradient(90deg, transparent, var(--line), transparent)}
+
+      /* ------------------ HEADER ------------------ */
+      .header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(160%) blur(8px); background:rgba(18,10,39,.55); border-bottom:1px solid rgba(167,139,250,.2)}
+      .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0}
+      .brand{display:flex; align-items:center; gap:12px; font-weight:800}
+      .logo{width:34px; height:34px; border-radius:12px; display:grid; place-items:center; color:white; background:conic-gradient(from 210deg at 50% 50%, var(--accent), var(--accent-2), var(--accent)); box-shadow:var(--shadow)}
+      .links{display:flex; gap:14px; flex-wrap:wrap}
+      .pill{display:inline-block; padding:10px 14px; border:1px solid rgba(167,139,250,.25); border-radius:999px}
       .cta{display:flex; gap:10px; flex-wrap:wrap}
-      .list-tight li{margin:4px 0}
-      .cols-3{display:grid; gap:16px}
-      @media(min-width:900px){ .cols-3{grid-template-columns:repeat(3,1fr)} }
+      .btn{display:inline-block; padding:12px 18px; border-radius:14px; border:1px solid rgba(167,139,250,.25); background:rgba(123,58,237,.08)}
+      .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:white; border-color:transparent; box-shadow:var(--shadow)}
+
+      /* ------------------ HERO ------------------ */
+      .hero .wrap{display:grid; gap:18px; align-items:center}
+      .kicker{display:inline-block; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink); padding:6px 10px; border:1px dashed rgba(167,139,250,.35); border-radius:999px}
+      .title{font-size: clamp(32px, 6vw, 56px); line-height:1.08; margin:6px 0}
+      .subtitle{color:var(--muted); max-width:760px}
+      .blobs{position:absolute; inset:-10% 0 auto 0; height:520px; pointer-events:none; z-index:-1}
+      .blob{position:absolute; filter:blur(40px); opacity:.45}
+      .blob.one{left:-10%; top:-8%; width:420px; height:420px; background:radial-gradient(closest-side, rgba(167,139,250,.55), rgba(167,139,250,0))}
+      .blob.two{right:-12%; top:-18%; width:520px; height:520px; background:radial-gradient(closest-side, rgba(124,58,237,.55), rgba(124,58,237,0))}
+
+      /* ------------------ SECTIONS ------------------ */
+      .section-head{display:flex; align-items:end; justify-content:space-between; gap:16px; margin-bottom:18px}
+      h2{font-size: clamp(22px, 3.8vw, 32px); margin:0}
+      .lead{color:var(--muted)}
+
+      /* Feature list (çerçevesiz, modern) */
+      .features{display:grid; gap:14px; grid-template-columns:1fr; margin-top:10px}
+      .feature{display:grid; gap:8px; padding:14px 0; border-bottom:1px dashed rgba(167,139,250,.22)}
+      .feature:last-child{border-bottom:0}
+      .feature strong{color:#fff}
+
+      /* Tiles (yalın, eşit geometri) */
+      .tiles{display:grid; gap:16px; grid-template-columns:1fr}
+      @media(min-width:900px){ .tiles{grid-template-columns:repeat(3,1fr)} }
+      .tile{background:linear-gradient(180deg, rgba(167,139,250,.08), rgba(124,58,237,.06)); border:1px solid rgba(167,139,250,.25); border-radius:var(--radius); padding:18px; box-shadow:0 8px 28px rgba(0,0,0,.18)}
+      .tile h3{margin:4px 0 8px 0; font-size:20px}
+      .tile p{margin:0; color:var(--muted)}
+
+      /* Info blocks (iki sütun, panel) */
+      .info{display:grid; gap:16px; grid-template-columns:1fr}
+      @media(min-width:900px){ .info{grid-template-columns:1fr 1fr} }
+      .panel{background:linear-gradient(180deg, rgba(18,10,39,.65), rgba(18,10,39,.5)); border:1px solid rgba(167,139,250,.22); border-radius:var(--radius); padding:20px}
+
+      /* Footer */
+      footer{border-top:1px solid rgba(167,139,250,.2); color:var(--muted)}
+      .foot{padding:28px 0; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+
+      /* Small helpers */
+      .icon{margin-right:6px}
+      ul{padding-left:18px; margin:12px 0}
+      li{margin:6px 0}
     </style>
   </head>
   <body>
+    <!-- Header -->
     <header class="header">
       <div class="container nav">
-        <div class="brand">
-          <div class="logo"><span>🎈</span></div>
-          <a href="#top" aria-label="Balon ana sayfa">Balon</a>
-        </div>
-        <nav class="navlinks">
-          <a href="#anasayfa">Anasayfa</a>
-          <a href="#kesfet">Keşfet</a>
-          <a href="#sans-carki">Şans Çarkı</a>
-          <a href="#sohbetler">Sohbetler</a>
-          <a href="#eslesmeler">Eşleşmeler</a>
-          <a href="#profil">Profil</a>
-          <a href="#paketler">Jeton & VIP</a>
-          <a href="#destek">Müşteri Hizmetleri</a>
-          <a href="#geri-bildirim">Geri Bildirim</a>
-          <a class="btn btn-primary" href="#indir">İndir</a>
+        <div class="brand"><div class="logo">🎈</div><a href="#top">Balon</a></div>
+        <nav class="links">
+          <a class="pill" href="#anasayfa">Anasayfa</a>
+          <a class="pill" href="#kesfet">Keşfet</a>
+          <a class="pill" href="#sans-carki">Şans Çarkı</a>
+          <a class="pill" href="#sohbetler">Sohbetler</a>
+          <a class="pill" href="#eslesmeler">Eşleşmeler</a>
+          <a class="pill" href="#profil">Profil</a>
+          <a class="pill" href="#paketler">Paketler</a>
+          <a class="pill" href="#destek">Destek</a>
         </nav>
+        <div class="cta"><a class="btn" href="#geri-bildirim">Geri Bildirim</a><a class="btn primary" href="#indir">İndir</a></div>
       </div>
     </header>
 
-    <main id="top">
-      <section class="hero">
-        <div class="glow"></div>
-        <div class="container wrap">
-          <span class="kicker">Balon 🎈 – Tanış, eşleş, sohbet et</span>
-          <h1 class="title">Gerçek bağlantılar için mor kanat: <br/>Balon ile keşfet, bağlan, konuş.</h1>
-          <p class="subtitle">**Balon**, beğenme mantığını hız, güvenlik ve eğlenceyle birleştirir. Aşağıda tüm bölümler ve adım adım kullanım rehberi var. Metinleri ve terimleri ürününe göre özgürce uyarlayabilirsin.</p>
-          <div class="cta">
-            <a class="btn btn-primary" href="#anasayfa">Hızlı Başla</a>
-            <a class="btn btn-outline" href="#paketler">Jeton & VIP’yi Gör</a>
-          </div>
-        </div>
-      </section>
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="blobs"><div class="blob one"></div><div class="blob two"></div></div>
+      <div class="container wrap">
+        <span class="kicker">Balon – Mor temalı tanışma deneyimi</span>
+        <h1 class="title">Gerçek bağlantılar için modern tasarım. <br/>Balon ile keşfet, eşleş, sohbet et.</h1>
+        <p class="subtitle">Balon, hız ve güvenliği eğlenceyle birleştirir. Aşağıda tüm bölümler ve pratik kullanım rehberi yer alıyor. Metinleri ürününe göre özgürce uyarlayabilirsin.</p>
+        <div class="cta"><a class="btn primary" href="#anasayfa">Hızlı Başla</a><a class="btn" href="#paketler">Jeton & VIP</a></div>
+      </div>
+    </section>
 
-      <section id="anasayfa" class="container grid">
-        <div class="card">
-          <div class="section-head">
-            <h2>Anasayfa 🏠</h2><span class="chip">Hızlı akış</span>
-          </div>
-          <p>Balon’a her girişinde ilk durak.</p>
-          <ul>
-            <li>🔢 <strong>Haklarını gör:</strong> Güncel <strong>Like</strong> ve <strong>Süper Like</strong> hakkın anlık görünür.</li>
-            <li>👍 <strong>Hemen etkileşime geç:</strong> Karşına çıkan kullanıcıları inceleyip <strong>beğenebilir</strong> veya geçebilirsin.</li>
-            <li>🧾 <strong>Profil özetleri:</strong> Yaş, konum, ilgi alanları ve biyografi kart üzerinde yer alır.</li>
-            <li>⚡ <strong>Tek dokunuş akışı:</strong> Kaydır, beğen, süper beğen—akıcı ve hızlı.</li>
-            <li>🛡️ <strong>Güvenli akış:</strong> Topluluk kurallarına uygun, doğrulanmış profiller önceliklidir.</li>
-          </ul>
-          <p class="muted">💡 <strong>İpucu:</strong> Süper Like, ilgini karşı tarafa öne çıkarır ve fark edilme ihtimalini artırır.</p>
-        </div>
-        
-        <div id="kesfet" class="card">
-          <div class="section-head">
-            <h2>Keşfet 🔎</h2><span class="chip">Hedefli arama</span>
-          </div>
-          <p>Hedefli arama ve görünürlük artırma alanın.</p>
-          <ul>
-            <li>🚀 <strong>Boost ile üste çık:</strong> Kendini <strong>Boost</strong>’layarak belirli süre listelerde <strong>üst sıralarda</strong> görün.</li>
-            <li>🎛️ <strong>Gelişmiş filtreler:</strong> Yaş aralığı, konum, ilişki amacı, ilgi alanları vb. filtrelerle aradığın profili netleştir.</li>
-            <li>🔍 <strong>İsimle arama:</strong> Arama çubuğundan <strong>belirli isimdeki</strong> kişiyi bulmayı dene.</li>
-            <li>👀 <strong>Detaylı inceleme:</strong> İlgini çeken profili aç, fotoğraflara ve biyografiye bak, <strong>beğeni gönder</strong>.</li>
-          </ul>
-          <p class="muted">💡 <strong>İpucu:</strong> En sık kullandığın filtre setini kaydedip tek dokunuşla yeniden kullan.</p>
-        </div>
-      </section>
+    <div class="divider"></div>
 
-      <section id="sans-carki" class="container grid">
-        <div class="card">
-          <div class="section-head">
-            <h2>Şans Çarkı 🎡</h2><span class="chip">Eğlence</span>
-          </div>
-          <p>Eğlence ve sürpriz ödüller bir arada.</p>
-          <ul>
-            <li>🎡 <strong>Çevir & kazan:</strong> <strong>Belirli bir miktar</strong> karşılığında çarkı çevir; bonus Like/Süper Like, Boost veya sürpriz ödüller kazan.</li>
-            <li>⏱️ <strong>Anında tanımlama:</strong> Kazandığın ödüller hesabına <strong>hemen</strong> yansır.</li>
-          </ul>
-          <p class="muted">ℹ️ <strong>Not:</strong> Ödüller ve olasılıklar dönemsel kampanyalara göre değişebilir.</p>
+    <!-- Anasayfa & Keşfet (çerçevesiz listeler) -->
+    <section id="anasayfa">
+      <div class="container">
+        <div class="section-head">
+          <h2>🏠 Anasayfa</h2>
+          <span class="lead">Giriş yaptığında gördüğün akış – hızlı ve sade</span>
         </div>
-        
-        <div id="sohbetler" class="card">
-          <div class="section-head">
-            <h2>Sohbetler 💬</h2><span class="chip">Mesajlaşma</span>
-          </div>
-          <p>Karşılıklı beğeni = sohbet.</p>
-          <ul>
-            <li>💬 <strong>Eşleşme sonrası başla:</strong> <strong>Karşılıklı beğendiğin</strong> kişilerle diyalog başlat.</li>
-            <li>🛡️ <strong>Güvenli iletişim:</strong> Tüm sohbetler <strong>gizlilik</strong> ve <strong>topluluk politikalarına</strong> tabidir.</li>
-            <li>🖼️ <strong>Zengin mesajlaşma:</strong> Uygulamanın izin verdiği ölçüde fotoğraf, emoji ve hızlı yanıtlar gönder.</li>
-          </ul>
-          <p class="muted">💡 <strong>İpucu:</strong> İlk mesajı sıcak, saygılı ve net tut; yanıt alma şansın artar.</p>
+        <div class="features">
+          <div class="feature">🔢 <strong>Haklarını gör:</strong> Like ve Süper Like hakların anlık görünür.</div>
+          <div class="feature">👍 <strong>Hemen etkileşime geç:</strong> Profilleri incele, beğen veya geç.</div>
+          <div class="feature">⚡ <strong>Tek dokunuş akışı:</strong> Kaydır, beğen, süper beğen – akıcı deneyim.</div>
+          <div class="feature">🛡️ <strong>Güvenli akış:</strong> Kurallara uygun, doğrulanmış profiller öncelikli.</div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="eslesmeler" class="container grid">
-        <div class="card">
-          <div class="section-head">
-            <h2>Eşleşmeler ❤️</h2><span class="chip">Yönetim</span>
-          </div>
-          <p>Seni beğenenleri ve eşleşmelerini yönet.</p>
-          <ul>
-            <li>👀 <strong>Seni beğenenler:</strong> <strong>Seni beğenen</strong> kullanıcıları gör, dilersen kabul edip eşleşmeye çevir.</li>
-            <li>❤️ <strong>Eşleşmelerim:</strong> Mevcut <strong>eşleşmelerini</strong> tek listede takip et.</li>
-            <li>✅ <strong>Hızlı karar:</strong> Tek dokunuşla kabul et, beklet ya da kaldır.</li>
-          </ul>
-          <p class="muted">💡 <strong>İpucu:</strong> Eşleşmeler sekmesini düzenli kontrol etmek, kaçan fırsatları yakalamanı sağlar.</p>
+    <section id="kesfet">
+      <div class="container">
+        <div class="section-head">
+          <h2>🔎 Keşfet</h2>
+          <span class="lead">Hedefli arama, görünürlük artırma</span>
         </div>
-        
-        <div id="profil" class="card">
-          <div class="section-head">
-            <h2>Profil 👤</h2><span class="chip">Kişiselleştirme</span>
-          </div>
-          <p>Kendini doğru anlat, doğru kişilere ulaş.</p>
-          <ul>
-            <li>👤 <strong>Profil ayarları:</strong> Fotoğraflar, biyografi, ilgi alanları ve <strong>görünürlük</strong> seçeneklerini düzenle.</li>
-            <li>🔒 <strong>Hesap & gizlilik:</strong> Bildirimler, gizlilik tercihleri, engelleme/rapor gibi ayarları yönet.</li>
-            <li>💎 <strong>Jeton & VIP:</strong> Hesabına <strong>Jeton</strong> ekle, <strong>VIP paketlerini</strong> incele.</li>
-            <li>🛎️ <strong>Müşteri hizmetleri:</strong> Soruların için doğrudan buradan bize ulaş.</li>
-            <li>📝 <strong>Geri bildirim:</strong> Hata bildir veya eklenmesini istediğin özelliği paylaş.</li>
-          </ul>
-          <p class="muted">💡 <strong>İpucu:</strong> Net, güncel fotoğraflar ve özgün bir biyografi görünürlüğünü artırır.</p>
+        <div class="features">
+          <div class="feature">🚀 <strong>Boost ile üste çık:</strong> Belirli süre listelerde üst sıralarda görün.</div>
+          <div class="feature">🎛️ <strong>Gelişmiş filtreler:</strong> Yaş, konum, ilgi alanları ve ilişki amacıyla daralt.</div>
+          <div class="feature">🔍 <strong>İsimle arama:</strong> Belirli isimdeki kişiyi doğrudan ara.</div>
+          <div class="feature">👀 <strong>Detaylı inceleme:</strong> Profili aç, fotoğraflara bak, beğeni gönder.</div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="paketler" class="container cols-3">
-        <div class="card">
-          <div class="section-head"><h2>Jeton & VIP Paketleri 💎</h2><span class="chip">Yükseltmeler</span></div>
-          <p>Deneyimini yükselt.</p>
-          <ul>
-            <li>🪙 <strong>Jetonlar:</strong> Boost, Şans Çarkı veya ek Like/Süper Like gibi özelliklerde kullan.</li>
-            <li>👑 <strong>VIP paketler:</strong> Daha fazla görünürlük, gelişmiş filtreler ve ekstra avantajlar.</li>
-            <li>💳 <strong>Güvenli ödeme:</strong> Yerel/uluslararası yöntemlerle hızlı, güvenli satın alma.</li>
-          </ul>
-          <p class="muted">ℹ️ <strong>Not:</strong> Paket içerikleri ve fiyatlar kampanyalara göre değişebilir.</p>
-        </div>
-        <div id="destek" class="card">
-          <div class="section-head"><h2>Müşteri Hizmetleri 🛎️</h2><span class="chip">Destek</span></div>
-          <p>Yardıma mı ihtiyacın var?</p>
-          <ul>
-            <li>🆘 <strong>Tek tık destek:</strong> Uygulama içinden talep oluştur; ekip en kısa sürede döner.</li>
-            <li>❓ <strong>SSS & Yardım Merkezi:</strong> Sık sorulan sorular ve adım adım çözümler elinin altında.</li>
-          </ul>
-          <p id="indir"><a class="btn btn-primary" href="#">Uygulamayı İndir</a> <a class="btn" href="#iletisim">İletişim</a></p>
-        </div>
-        <div id="geri-bildirim" class="card">
-          <div class="section-head"><h2>Geri Bildirim 📝</h2><span class="chip">Birlikte geliştirelim</span></div>
-          <p>Balon’u birlikte geliştirelim.</p>
-          <ul>
-            <li>🐞 <strong>Hata bildirimi:</strong> Yaşadığın sorunları detaylarıyla paylaş.</li>
-            <li>💡 <strong>Öneri & istek:</strong> Eklenmesini istediğin özellik veya geliştirmeleri ilet.</li>
-          </ul>
-          <p id="iletisim" class="muted">İletişim için e‑posta: <a href="mailto:destek@balon.app">destek@balon.app</a> (örnek).</p>
-        </div>
-      </section>
+    <div class="divider"></div>
 
-      <section class="container grid">
-        <div class="card">
-          <div class="section-head"><h2>Güvenlik & Topluluk Kuralları 🛡️</h2><span class="chip">Güven</span></div>
-          <p>Herkes için saygılı ve güvenli bir ortam.</p>
-          <ul class="list-tight">
-            <li>✅ <strong>Doğrulama:</strong> Gerekli hallerde profil doğrulama adımları istenebilir.</li>
-            <li>🚩 <strong>Raporlama:</strong> Uygunsuz içerik veya davranışları profil üzerinden <strong>rapor et</strong>.</li>
-            <li>📜 <strong>Politikalar:</strong> Tüm kullanım, gizlilik ve topluluk kuralları sohbet ve içeriklerde geçerlidir.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="section-head"><h2>Hızlı Başlangıç (Özet) 🚀</h2><span class="chip">Kısa yol</span></div>
-          <ol>
-            <li><strong>Anasayfa</strong>’da Like/Süper Like haklarına bak, beğenmeye başla.</li>
-            <li><strong>Keşfet</strong>’te Boost aç, filtreleri kullan, gerekirse isimle ara.</li>
-            <li><strong>Şans Çarkı</strong>’nı çevir, sürpriz ödüller kap.</li>
-            <li><strong>Eşleşmeler</strong>’de seni beğenenleri gör, kabul edip sohbeti başlat.</li>
-            <li><strong>Sohbetler</strong>’de kurallara uygun, keyifli bir iletişim sürdür.</li>
-            <li><strong>Profil</strong>’de ayarları, <strong>Jeton & VIP</strong>’i ve <strong>Geri Bildirim</strong>’i yönet.</li>
-          </ol>
-        </div>
-      </section>
-    </main>
+    <!-- Üçlü karolar (Şans Çarkı, Sohbetler, Eşleşmeler) -->
+    <section class="tiles">
+      <div class="container tiles">
+        <article class="tile" id="sans-carki">
+          <h3>🎡 Şans Çarkı</h3>
+          <p>Belirli bir miktar karşılığında çarkı çevir, bonus Like/Süper Like, Boost veya sürpriz ödüller kazan. Ödüller hesabına hemen tanımlanır.</p>
+        </article>
+        <article class="tile" id="sohbetler">
+          <h3>💬 Sohbetler</h3>
+          <p>Karşılıklı beğeni olduğunda sohbet başlat. Tüm mesajlaşmalar gizlilik ve topluluk politikalarına tabidir.</p>
+        </article>
+        <article class="tile" id="eslesmeler">
+          <h3>❤️ Eşleşmeler</h3>
+          <p>Seni beğenenleri gör, kabul edip eşleşmeye çevir. Mevcut eşleşmelerini tek ekranda yönet.</p>
+        </article>
+      </div>
+    </section>
 
-    <footer class="footer">
-      <div class="container footer-inner">
+    <div class="divider"></div>
+
+    <!-- Profil + Paketler + Destek -->
+    <section class="info">
+      <div class="container info">
+        <div class="panel" id="profil">
+          <h2>👤 Profil</h2>
+          <ul>
+            <li><strong>Profil ayarları:</strong> Fotoğraflar, biyografi, ilgi alanları ve görünürlük.</li>
+            <li><strong>Hesap & gizlilik:</strong> Bildirimler, engelleme/rapor, tercihlerin.</li>
+            <li><strong>Geri bildirim:</strong> Hata bildir, öneri ilet.</li>
+          </ul>
+          <p class="lead">İpucu: Güncel, net fotoğraflar ve özgün bir bio görünürlüğü artırır.</p>
+        </div>
+        <div class="panel" id="paketler">
+          <h2>💎 Jeton & VIP Paketleri</h2>
+          <ul>
+            <li><strong>Jetonlar:</strong> Boost, Şans Çarkı, ek Like/Süper Like için kullan.</li>
+            <li><strong>VIP:</strong> Daha fazla görünürlük ve gelişmiş filtreler.</li>
+            <li><strong>Güvenli ödeme:</strong> Hızlı ve güvenli satın alma.</li>
+          </ul>
+          <div class="cta"><a class="btn primary" href="#">Satın Al</a><a class="btn" href="#destek">Yardım</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container panel" id="destek">
+        <h2>🛎️ Müşteri Hizmetleri</h2>
+        <p>İhtiyacın olduğunda buradayız. SSS ve yardım makalelerine göz at, ya da bize yaz.</p>
+        <div class="cta"><a class="btn" href="#iletisim">İletişim</a><a class="btn primary" id="indir" href="#">Uygulamayı İndir</a></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container panel" id="geri-bildirim">
+        <h2>📝 Geri Bildirim</h2>
+        <p>Balon’u birlikte geliştirelim. Hata bildir veya eklenmesini istediğin özelliği ilet.</p>
+        <p class="lead" id="iletisim">E‑posta: <a href="mailto:destek@balon.app">destek@balon.app</a> (örnek)</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container panel">
+        <h2>🛡️ Güvenlik & Topluluk Kuralları</h2>
+        <ul>
+          <li><strong>Doğrulama:</strong> Gerektiğinde profil doğrulama istenebilir.</li>
+          <li><strong>Raporlama:</strong> Uygunsuz davranışı kolayca rapor et.</li>
+          <li><strong>Politikalar:</strong> Kullanım, gizlilik ve topluluk kuralları geçerlidir.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container foot">
         <span>© <script>document.write(new Date().getFullYear())</script> Balon</span>
-        <span class="muted">Mor temalı tek sayfa – GitHub Pages için hazır</span>
+        <span style="opacity:.9">Tamamen <strong>mor tema</strong> • modern, kutusuz geometri</span>
       </div>
     </footer>
   </body>
