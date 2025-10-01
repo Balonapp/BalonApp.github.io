@@ -35,6 +35,7 @@
       /* ------------------ LAYOUT ------------------ */
       .container{max-width:1120px; margin:0 auto; padding:0 24px}
       .container.narrow{max-width:820px}
+      .container.wide{max-width:1200px}
       section{padding:80px 0; position:relative}
       .divider{height:1px; margin:8px 0; background:linear-gradient(90deg, transparent, var(--line), transparent)}
 
@@ -73,10 +74,10 @@
       footer{border-top:1px solid rgba(167,139,250,.2); color:var(--muted)}
       .foot{padding:28px 0; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
           /* ------------------ GALLERY (4 görsel, modern) ------------------ */
-      .gallery{display:grid; gap:14px; grid-template-columns:repeat(2,1fr); align-items:stretch}
+      .gallery{display:grid; gap:18px; grid-template-columns:repeat(4,1fr); align-items:stretch}
       @media(min-width:900px){.gallery{grid-template-columns:repeat(4,1fr)}}
       .gallery .frame{position:relative; border-radius:16px; overflow:hidden; border:1px solid rgba(167,139,250,.22); background:linear-gradient(180deg, rgba(167,139,250,.08), rgba(124,58,237,.06)); box-shadow:0 8px 28px rgba(0,0,0,.18)}
-      .gallery img{display:block; width:100%; height:100%; aspect-ratio:16/10; object-fit:cover; filter:saturate(1.05);}
+      .gallery img{display:block; width:100%; height:100%; aspect-ratio:4/3; object-fit:cover; filter:saturate(1.05);} 
       .gallery .glare{position:absolute; inset:0; background:radial-gradient(120% 120% at -10% -30%, rgba(255,255,255,.12), transparent 40%); pointer-events:none}
       .gallery .frame:hover{transform:translateY(-2px); transition:transform .2s ease}
     </style>
@@ -131,7 +132,7 @@
 
     <!-- 4'lü Görsel Galerisi -->
     <section>
-      <div class="container narrow">
+      <div class="container wide">
         <div class="gallery" aria-label="Öne çıkan görseller">
           <figure class="frame"><img src="images/ss1.jpg" alt="Balon uygulaması ekran görüntüsü 1" loading="lazy"/><span class="glare"></span></figure>
           <figure class="frame"><img src="images/ss2.jpg" alt="Balon uygulaması ekran görüntüsü 2" loading="lazy"/><span class="glare"></span></figure>
