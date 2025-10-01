@@ -72,6 +72,13 @@
       /* Footer */
       footer{border-top:1px solid rgba(167,139,250,.2); color:var(--muted)}
       .foot{padding:28px 0; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+          /* ------------------ GALLERY (4 görsel, modern) ------------------ */
+      .gallery{display:grid; gap:14px; grid-template-columns:repeat(2,1fr); align-items:stretch}
+      @media(min-width:900px){.gallery{grid-template-columns:repeat(4,1fr)}}
+      .gallery .frame{position:relative; border-radius:16px; overflow:hidden; border:1px solid rgba(167,139,250,.22); background:linear-gradient(180deg, rgba(167,139,250,.08), rgba(124,58,237,.06)); box-shadow:0 8px 28px rgba(0,0,0,.18)}
+      .gallery img{display:block; width:100%; height:100%; aspect-ratio:16/10; object-fit:cover; filter:saturate(1.05);}
+      .gallery .glare{position:absolute; inset:0; background:radial-gradient(120% 120% at -10% -30%, rgba(255,255,255,.12), transparent 40%); pointer-events:none}
+      .gallery .frame:hover{transform:translateY(-2px); transition:transform .2s ease}
     </style>
   </head>
   <body>
@@ -121,6 +128,18 @@
     </section>
 
     <div class="divider"></div>
+
+    <!-- 4'lü Görsel Galerisi -->
+    <section>
+      <div class="container narrow">
+        <div class="gallery" aria-label="Öne çıkan görseller">
+          <figure class="frame"><img src="images/ss1.jpg" alt="Balon uygulaması ekran görüntüsü 1" loading="lazy"/><span class="glare"></span></figure>
+          <figure class="frame"><img src="images/ss2.jpg" alt="Balon uygulaması ekran görüntüsü 2" loading="lazy"/><span class="glare"></span></figure>
+          <figure class="frame"><img src="images/ss3.jpg" alt="Balon uygulaması ekran görüntüsü 3" loading="lazy"/><span class="glare"></span></figure>
+          <figure class="frame"><img src="images/ss4.jpg" alt="Balon uygulaması ekran görüntüsü 4" loading="lazy"/><span class="glare"></span></figure>
+        </div>
+      </div>
+    </section>
 
     <!-- Tüm başlıklar KUTU içinde, tek sütun -->
     <section>
@@ -220,7 +239,7 @@
           <ul>
             <li><strong>Hata bildirimi:</strong> Yaşadığın sorunları paylaş.</li>
             <li><strong>Öneri & istek:</strong> Eklenmesini istediğin özellikleri ilet.</li>
-            <li><strong>İletişim:</strong> <a href="mailto:balondaiting@gmail.com">balondaiting@gmail.com</a></li>
+            <li><strong>İletişim:</strong> <a href="mailto:destek@balon.app">destek@balon.app</a> (örnek)</li>
           </ul>
         </article>
 
@@ -243,6 +262,7 @@
     <footer>
       <div class="container foot">
         <span>© <script>document.write(new Date().getFullYear())</script> Balon</span>
+        <span style="opacity:.9">Tamamen <strong>mor tema</strong> • tek sütun, kutulu başlık düzeni</span>
       </div>
     </footer>
   </body>
