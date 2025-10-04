@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Çocuk Güvenliği Standartları — Balon</title>
+<style>
+  :root{--fg:#111;--bg:#fff;--muted:#666;--card:#fafafa;--border:#eee;--accent:#8D56E2}
+  @media (prefers-color-scheme: dark){:root{--fg:#eaeaea;--bg:#0b0b0c;--muted:#9a9a9a;--card:#111;--border:#262626}}
+  body{margin:0;font:16px/1.6 system-ui,Segoe UI,Roboto,Arial;color:var(--fg);background:var(--bg)}
+  .wrap{max-width:860px;margin:40px auto;padding:0 16px}
+  h1{font-size:28px;margin:0 0 16px}
+  h2{margin-top:28px;font-size:20px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px}
+  a{color:var(--accent)}
+  ul{margin:8px 0 8px 20px}
+  code{background:var(--card);padding:2px 6px;border-radius:6px}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Balon — Çocuk Güvenliği Standartları</h1>
+    <div class="card">
+      <p>Balon, 18 yaş ve üzeri kullanıcılar için tasarlanmıştır. Çocukların cinsel istismarı materyali (CSAM) dahil olmak üzere istismar, sömürü ve zararlı içeriklere karşı sıfır tolerans politikası uygularız.</p>
+    </div>
+
+    <h2>1) Yasak İçerikler</h2>
+    <ul>
+      <li>Her türlü <strong>CSAM</strong>, çocukların cinsel istismarı/istismarı ima eden veya teşvik eden içerik.</li>
+      <li>Reşit olmayanları romantize eden, yaşını küçültmeye teşvik eden, grooming/ayartma davranışları.</li>
+      <li>Şiddet, zorbalık, nefret veya tehdide yönelik içerikler.</li>
+    </ul>
+
+    <h2>2) Önleme ve Tespit</h2>
+    <ul>
+      <li><strong>18+ yaş kapısı</strong> ve açık topluluk kuralları.</li>
+      <li>Kullanıcı içerikleri için <strong>şikâyet/bildirim</strong>, <strong>engelle</strong> ve <strong>hesap/sohbet raporlama</strong> araçları.</li>
+      <li>İhlal şüphesinde <strong>derhal hesap kısıtlama</strong> ve içerik kaldırma.</li>
+    </ul>
+
+    <h2>3) Raporlama ve Müdahale</h2>
+    <ul>
+      <li>Uygulama içinden “Bildir” ile şikâyet toplanır; acil risk durumunda ilgili hesap ve içerik <strong>hemen</strong> dondurulur.</li>
+      <li>Doğrulanan CSAM/istismar vakaları <strong>yasal yükümlülüklere uygun şekilde</strong> yetkili mercilere bildirilir.</li>
+      <li>Rapor kayıtları yalnızca soruşturma ve güvenlik amaçlarıyla, gerekli olduğu süre boyunca saklanır.</li>
+    </ul>
+
+    <h2>4) İşbirliği ve Yaptırım</h2>
+    <ul>
+      <li>Yetkili makamlarla işbirliği yapılır, talep halinde gerekli kayıtlar sağlanır.</li>
+      <li>İhlal eden hesaplar kalıcı olarak kapatılır; cihaz/telefon doğrulaması ve kayıtlı kimliklerle bağlantılar incelenir.</li>
+    </ul>
+
+    <h2>5) İletişim</h2>
+    <p>Çocuk güvenliğiyle ilgili acil endişeler için lütfen bizimle iletişime geçin:
+      <br> E-posta: <a href="mailto:samilturan8@gmail.com">samilturan8@gmail.com</a>
+    </p>
+
+    <p style="color:var(--muted);font-size:14px">Son güncelleme: <span id="y"></span></p>
+  </main>
+<script>document.getElementById('y').textContent=new Date().toISOString().slice(0,10);</script>
+</body>
+</html>
