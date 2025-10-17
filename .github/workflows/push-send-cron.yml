@@ -1,0 +1,29 @@
+name: push-send (cron)
+
+on:
+  schedule:
+    # GitHub Actions en sık 5 dakikada bir tetikler.
+    - cron: "*/5 * * * *"
+  workflow_dispatch: {}  # İstersen elle de başlatabil
+
+concurrency:
+  group: push-send-cron
+  cancel-in-progress: true
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping push-send every 30s for 5 minutes
+        env:
+          URL: ${{ secrets.SUPABASE_FUNCTION_URL }}
+          SRK: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          for i in {1..10}; do
+            echo "[$i/10] calling push-send..."
+            curl -sS -X POST "$URL" \
+              -H "Authorization: Bearer $SRK" \
+              -H "Content-Type: application/json" \
+              -d '{}' || true
+            sleep 30
+          done
